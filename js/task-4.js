@@ -4,6 +4,14 @@ const passwordInput = loginForm.elements.password;
 const button = document.querySelector('button[type="submit"]');
 button.innerHTML = "Log in";
 
+const emailInput = document.getElementById("emailInput");
+
+// Додаємо обробник подій для події mouseover
+emailInput.addEventListener("mouseover", function () {
+  // Змінюємо колір рамки на #000 (чорний)
+  this.style.border = "1px solid #000";
+});
+
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
