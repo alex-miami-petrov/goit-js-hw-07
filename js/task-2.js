@@ -31,6 +31,8 @@ images.forEach((image) => {
   const li = document.createElement("li");
   const img = document.createElement("img");
 
+  const galleryItem = li.classList.add("gallery-item");
+
   img.src = image.url;
   img.alt = image.alt;
 
