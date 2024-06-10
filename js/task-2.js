@@ -25,19 +25,21 @@ const images = [
   },
 ];
 
-const galleryList = document.querySelector(".gallery");
+const galleryList = document.querySelector("ul.gallery");
 
-images.forEach((image) => {
-  const li = document.createElement("li");
+const fragment = document.createDocumentFragment();
+
+images.slice(0, 6).forEach((image) => {
+  const listItem = document.createElement("li");
+
   const img = document.createElement("img");
-
-  const galleryItem = li.classList.add("gallery-item");
 
   img.src = image.url;
   img.alt = image.alt;
 
-  li.appendChild(img);
-  galleryList.appendChild(li);
+  listItem.appendChild(img);
+
+  fragment.appendChild(listItem);
 });
 
-// galleryList.classList.add("gallery-style");
+galleryList.appendChild(fragment);
