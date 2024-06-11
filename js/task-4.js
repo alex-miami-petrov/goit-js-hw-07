@@ -1,22 +1,19 @@
 // const loginForm = document.querySelector(".login-form");
 // const emailInput = loginForm.elements.email;
-// const passwordInput = loginForm.elements.password;
 // const button = document.querySelector('button[type="submit"]');
 // button.innerHTML = "Log in";
-
-// const emailInput = document.getElementById("emailInput");
 
 // emailInput.addEventListener("mouseover", function () {
 //   this.style.border = "1px solid #000";
 // });
 
-// loginForm.addEventListener("submit", (event) => {
+// loginForm.addEventListener("submit", function (event) {
 //   event.preventDefault();
 
-//   const emailValue = emailInput.value.trim();
-//   const passwordValue = passwordInput.value.trim();
+//   const emailValue = this.elements.email.value.trim();
+//   const passwordValue = this.elements.password.value.trim();
 
-//   if (!emailValue || !passwordValue) {
+//   if (emailValue === "" || passwordValue === "") {
 //     alert("All form fields must be filled in");
 //     return;
 //   }
@@ -28,34 +25,33 @@
 
 //   console.log(formData);
 
-//   loginForm.reset();
+//   this.reset();
 // });
 
-const loginForm = document.querySelector(".login-form");
-const button = document.querySelector('button[type="submit"]');
-button.innerHTML = "Log in";
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".login-form");
 
-emailInput.addEventListener("mouseover", function () {
-  this.style.border = "1px solid #000";
-});
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+    const emailInput = form.elements["email"];
+    const passwordInput = form.elements["password"];
 
-  const emailValue = this.elements.email.value.trim();
-  const passwordValue = this.elements.password.value.trim();
+    const emailValue = emailInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
 
-  if (emailValue === "" || passwordValue === "") {
-    alert("All form fields must be filled in");
-    return;
-  }
+    if (!emailValue || !passwordValue) {
+      alert("All form fields must be filled in");
+      return;
+    }
 
-  const formData = {
-    email: emailValue,
-    password: passwordValue,
-  };
+    const formData = {
+      email: emailValue,
+      password: passwordValue,
+    };
 
-  console.log(formData);
+    console.log(formData);
 
-  this.reset();
+    form.reset();
+  });
 });
